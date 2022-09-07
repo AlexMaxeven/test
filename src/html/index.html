@@ -52,7 +52,7 @@
                                         </a>
                                     </li>
                                     <li class="menu__item">
-                                        <a href="#" class="menu__link">
+                                        <a href="#" class="menu__link menu__link-active">
                                             Туры
                                         </a>
                                         <span class="menu__arrow"></span>
@@ -82,7 +82,7 @@
                                         </a>
                                     </li>
                                     <li class="menu__item">
-                                        <a href="#" class="menu__link">
+                                        <a href="#" class="menu__link menu__link-active">
                                             Услуги
                                         </a>
                                         <span class="menu__arrow"></span>
@@ -346,16 +346,25 @@
                     </h3>
                     <div class="form__box">
                         <input type="text" placeholder="Имя">
-                        <input type="text" placeholder="Email">
-                        <input type="text" placeholder="Телефон">
-                        <select class="form__select"  name="Cтрана тура" id="">
+                        <input type="mail" placeholder="Email">
+                        <input type="tel" placeholder="Телефон">
+                        <ul class="form__box-list">
+                            <li class="form__box-item"><a class="form__box-link">Страна Тура</a></li>
+                            <ul class="form__box-sublist">
+                                <li class="form__box-sublink"><a >Турция</a></li>
+                                <li class="form__box-sublink" ><a href="">Египет</a></li>
+                                <li class="form__box-sublink"><a href="">Шри-Ланка</a></li>
+                                <li class="form__box-sublink"> <a href="">Доминикана</a></li>
+                            </ul>
+                        </ul>
+                        <!-- <select class="form__select"  name="Cтрана тура" id="">
                             <option class="form__input" selected disabled value="1">Cтрана тура</option>
                             <option class="form__input" value="1">Турция</option>
                             <option class="form__input" value="1">Египет</option>
                             <option class="form__input" value="1">Шри-Ланка</option>
                             <option class="form__input" value="1">Доминикана</option>
-                        </select>
-                        <button class="sentence-btn btn">
+                        </select> -->
+                        <button class="sentence-btn btn btn-form">
                             <a href="#" class="btn__link">
                                 Получить предложение
                             </a>

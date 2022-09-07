@@ -1,5 +1,5 @@
 // submenu - toggle class _active for submenu
-let menuArrows = document.querySelectorAll('.menu__arrow');
+let menuArrows = document.querySelectorAll('.menu__arrow, .menu__link-active, .form__box-link, .form__box-item');
 if(menuArrows.length > 0) {
     for (let index = 0; index < menuArrows.length; index++) {
         const menuArrow = menuArrows[index];
@@ -7,7 +7,8 @@ if(menuArrows.length > 0) {
             menuArrow.parentElement.classList.toggle('_active');
         });
     }
-}
+};
+
 // swiper - slider main-header
 new Swiper('.sentence', {
     pagination: {

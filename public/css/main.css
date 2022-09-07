@@ -119,6 +119,7 @@ body {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 10px;
+  z-index: 5;
 }
 
 .swiper-pagination {
@@ -318,7 +319,7 @@ body {
   align-items: center;
 }
 
-.menu__list > li:hover .menu__sub-list {
+.menu__list > li._active .menu__sub-list {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translate(0px, 0px);
@@ -327,20 +328,19 @@ body {
   pointer-events: all;
 }
 
-.menu__list > li:hover .menu__arrow::after {
+.menu__list > li._active .menu__arrow::after {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-.menu__list > li:hover .menu__arrow::before {
+.menu__list > li._active .menu__arrow::before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .sentence__box {
-  background: rgba(15, 37, 71, 0.39);
   padding-bottom: 59px;
   margin-bottom: 139px;
   display: -webkit-box;
@@ -361,12 +361,15 @@ body {
   position: relative;
 }
 
-.sentence__box-yellow {
-  background: rgba(117, 133, 31, 0.39);
-}
-
-.sentence__box-grey {
-  background: rgba(10, 105, 10, 0.527);
+.sentence__box::before {
+  background: rgba(0, 77, 132, 0.4784313725);
+  position: absolute;
+  content: "";
+  height: 228px;
+  width: 80%;
+  height: 228px;
+  left: 0px;
+  z-index: 1;
 }
 
 .sentence__title {
@@ -401,7 +404,7 @@ body {
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
   bottom: 10px;
-  left: -32%;
+  left: -28%;
   width: 100%;
 }
 
@@ -417,9 +420,7 @@ body {
 }
 
 .tabs-triggers {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   text-align: left;
 }
 
@@ -430,7 +431,6 @@ body {
   text-align: left;
   padding: 74px 20px;
   display: inline-block;
-  margin-right: auto;
 }
 
 .tabs-triggers__item--active {
@@ -596,10 +596,77 @@ body {
   padding: 50px;
   max-width: 1139px;
   margin: 0 auto 0px;
+  position: relative;
 }
 
 .form__input {
   padding-right: 10px;
+}
+
+.form__box-list {
+  padding-left: 18px;
+  font-size: 18px;
+  color: #e5e5e5;
+  display: inline;
+  position: absolute;
+  top: 46%;
+  left: 53%;
+}
+
+.form__box-link {
+  position: relative;
+}
+
+.form__box-link::after {
+  background: url("../img/form-arrow.png") no-repeat 0 0/contain;
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 11px;
+  right: -35px;
+  bottom: 5px;
+}
+
+.form__box-sublist {
+  background: #ffffff;
+  position: absolute;
+  color: #000000;
+  top: 25px;
+  width: 143px;
+}
+
+.form__box-sublist > li {
+  padding: 10px 5px 10px 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form__box-sublist > li:hover {
+  color: #fbd341;
+}
+
+.form__box-sublist > li:target {
+  color: #fbd341;
+}
+
+.form__box-item {
+  cursor: pointer;
+}
+
+.form__box-sublist {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.form__box-list._active .form__box-sublist {
+  opacity: 1;
+  visibility: visible;
 }
 
 input,
@@ -641,6 +708,10 @@ input::placeholder,
 textarea::placeholder {
   color: #e6e6e6;
   font-size: 18px;
+}
+
+.btn-form {
+  margin-left: 180px;
 }
 
 select {
@@ -755,8 +826,52 @@ option:hover {
   }
 }
 
+@media (max-width: 1300px) {
+  .sentence__box::before {
+    width: 90%;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 10px;
+    left: -36%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .btn-form {
+    margin: 20px auto 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .form__box-list {
+    padding-left: 18px;
+    font-size: 18px;
+    color: #e5e5e5;
+    display: inline;
+    position: absolute;
+    top: 25%;
+    left: 60%;
+  }
+}
+
 @media (max-width: 1000px) {
   .menu__link:first-child {
     padding-left: 10px;
+  }
+
+  .form__box-list {
+    left: 67%;
+  }
+}
+
+@media (max-width: 900px) {
+  .form__box-list {
+    top: 54%;
   }
 }
